@@ -71,7 +71,7 @@
 
         <div class="hero-photo-wrap">
           <div class="hero-photo-frame" aria-label="Photo de Me Francis Renaud">
-            <video class="hero-video" autoplay muted loop playsinline style="opacity:0.25;">
+            <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline style="opacity:0.25;">
               <source src="Assets/Video/Notary_Website_Video_A_quill_pen_rests_on_aged_papers_atop_a_leather_h5exx1F.mp4" type="video/mp4">
             </video>
             <div class="photo-border-deco" aria-hidden="true"></div>
@@ -415,5 +415,18 @@
   <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var v = document.getElementById('heroVideo');
+      if (!v) return;
+      v.muted = true;
+      var playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          document.addEventListener('touchstart', function () { v.play(); }, { once: true });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
