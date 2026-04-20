@@ -1037,6 +1037,24 @@ address {
 .footer-bottom {
   border-top: 1px solid rgba(201,169,110,0.15);
   padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-laurier {
+  display: flex;
+  align-items: center;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.footer-laurier:hover {
+  opacity: 1;
+}
+.footer-laurier-logo {
+  height: 32px;
+  width: auto;
 }
 .footer-copy {
   font-size: 0.78rem;
